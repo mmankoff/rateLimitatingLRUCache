@@ -51,7 +51,7 @@ class Cache<T>(private val type: Type, private val size: Int) {
 class LowCostLRUCache<K, V>(private val capacity: Int = 5) {
     private val cache = HashMap<K, V>()
     private val insertionOrder = LinkedList<K>()
-    
+
     fun put(key: K, value: V): K? {
         var evictedKey: K? = null
         if (cache.size >= capacity) {
