@@ -25,8 +25,8 @@ into the cache it’s rank is set to the highest rank.
 - Edge Cases. 
 - One issue to address is the cost of finding which key needs to be evicted once capacity is reached. 
 - The LRU cache will provide an implementation that allows for me to do this w/out incurring additional cost without losing the speed.
-- I chose a linked list since I'm using a Que. Using linked list makes it inexpensive to remove items from request headers so the LRU. 
-- LRU caching doesn't hold the performance impact for insertions into the caches once their capacity has been reached, and I wanted to optimize writes for this experiment so that is the reasons I've decided to implement it.
+- I chose a linked list since I'm using a Que. Using linked list makes it inexpensive to remove items from request headers, and the 
+  LRU caching doesn't hold the performance impact for insertions into the caches once their capacity has been reached, and I wanted to optimize writes for this experiment so that is the reasons I've decided to implement it.
 - The Performance is O(1) and for cache eviction, it is still O(1).
 -----------------------------------------------------------------------------------------------------------------------
 - Speed:
