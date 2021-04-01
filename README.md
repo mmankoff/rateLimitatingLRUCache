@@ -6,9 +6,8 @@ Goal:
 Uses: A Que & Hash Function:
 --------------------------------------------------------------------------------------------------------
 - When a page gets requested, it may or may not be in memory.
-  - If it's already stored I will need that node to detach itself and place itself at the start of my list.
-- Node is in memory and gets referenced: 
-  - Node detaches and heads to the front of the bus.
+- If Node is in memory and gets referenced: 
+  - I need that node to detach itself and place itself at the start of my list.
 - Node isn't in memory:
   - A new node needs to be added and sent to the front of the bus but needs to also update it's new address inside the hash storage.
     
@@ -24,7 +23,7 @@ one is inserted and there’s no space left in the cache. Another note is that e
 into the cache it’s rank is set to the highest rank.
  
 -  Edge Cases. 
-- One issue to address is the cost of finding which key needs to be evicted once capacity is reached. 
+ - One issue to address is the cost of finding which key needs to be evicted once capacity is reached. 
 - I've chosen to use an LRU cache to provide an implementation that will allow for me to do this w/out incurring additional cost without losing the speed.
 - I chose a linked list here to reduce unnecessary overhead from write operations. Using linked list makes it inexpensive to remove items from request headers so the LRU. 
 - LRU caching doesn't hold the performance impact for insertions into the caches once their capacity has been reached, and I wanted to optimize writes for this experiment so that is the reasons I've decided to implement it.
