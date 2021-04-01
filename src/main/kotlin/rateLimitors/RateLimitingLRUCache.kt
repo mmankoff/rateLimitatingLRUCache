@@ -4,7 +4,7 @@ import java.util.*
 import kotlin.collections.HashMap
 enum class Type { LRU, MRU }
 
-class Cache<T>(private val type: Type, private val size: Int) {
+class RateLimitingLRUCache<T>(private val type: Type, private val size: Int) {
     private val map = mutableMapOf<T, Int>()
     private var rank: Int = 0
 
