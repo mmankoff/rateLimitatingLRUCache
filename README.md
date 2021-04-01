@@ -1,5 +1,5 @@
 Goal:
-
+-------------------------------------------------------------------------------------------------------
 - Find the fastest function that handles rate limiting policies for page requests using a hashing function
   where page requests get sent and returned along with storing page counts.
   
@@ -11,7 +11,7 @@ Uses: A Que & Hash Function:
 - Node isn't in memory:
   - A new node needs to be added and sent to the front of the bus but needs to also update it's new address inside the hash storage.
     
-Que: If the que or (frame) is full ->
+Que: If the que or (frame) is full:
 - Eject the last node from the back of the bus and add a new one to the front of the bus to replace it. 
 - This function also needs to have the ability to store values when the page isn't found. 
 - It will need to bring that new page being requested into memory once referenced.
@@ -22,8 +22,8 @@ rank.
 one is inserted and there’s no space left in the cache. Another note is that every time an item is inserted
 into the cache it’s rank is set to the highest rank.
  
--  Edge Cases. 
- - One issue to address is the cost of finding which key needs to be evicted once capacity is reached. 
+- Edge Cases. 
+- One issue to address is the cost of finding which key needs to be evicted once capacity is reached. 
 - I've chosen to use an LRU cache to provide an implementation that will allow for me to do this w/out incurring additional cost without losing the speed.
 - I chose a linked list here to reduce unnecessary overhead from write operations. Using linked list makes it inexpensive to remove items from request headers so the LRU. 
 - LRU caching doesn't hold the performance impact for insertions into the caches once their capacity has been reached, and I wanted to optimize writes for this experiment so that is the reasons I've decided to implement it.
