@@ -3,12 +3,14 @@ Goal:
 - Find the fastest function that handles rate limiting policies for page requests using a hashing function
   where page requests get sent and returned along with storing page counts.
   
-Uses: A Que & Hash Function
-  - When a page gets requested, it might be in memory so if it's stored I need that node to detach itself and place itself at the start
-    of the list.
-    Node is in memory and gets referenced -> Node detaches and heads to the front of the bus.
-    Node isn't in memory -> A new node needs to be added and sent to the front of the bus but needs to also update
-    it's new address inside the hash storage.
+Uses: A Que & Hash Function:
+--------------------------------------------------------------------------------------------------------
+- When a page gets requested, it may or may not be in memory.
+  - If it's already stored I will need that node to detach itself and place itself at the start of my list.
+- Node is in memory and gets referenced: 
+  - Node detaches and heads to the front of the bus.
+- Node isn't in memory:
+  - A new node needs to be added and sent to the front of the bus but needs to also update it's new address inside the hash storage.
     
 Que: If the que or (frame) is full ->
 - Eject the last node from the back of the bus and add a new one to the front of the bus to replace it. 
